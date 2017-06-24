@@ -5,8 +5,8 @@
 		<title>Golf!</title>
 		<link rel="stylesheet" href="stylesheet.css" type="text/css">
 	</head>
-	<body onkeypress="keyPress(event)">
-		<canvas onclick="shot(event)" id="canvas"></canvas>
+	<body onkeypress="keyPress(event)" onmousedown="mouseDown(event)" onmouseup="mouseUp(event)">
+		<canvas id="canvas"></canvas>
 		<div class="gui" id="abilities">
 			<div class="abilitySquare" id="ability1"></div>
 			<div class="abilitySquare" id="ability2"></div>

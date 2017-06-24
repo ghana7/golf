@@ -54,12 +54,30 @@ function drawFrame() {
 function gameLoop() {
 	tick();
 	drawFrame();
+	console.log(shotCharge);
 }
 
-
+var chargeInterval;
+var shotCharge = 0;
+function mouseDown(e) {
+	shotCharge++;
+	
+	window.clearInterval(chargeInterval);
+	chargeInterval = window.setInterval(function() {
+		shotCharge++; 
+		if(shotCharge > 100) {
+			shotCharge = 100;
+		}
+	}, 20);
+}
+function mouseUp(e) {
+	shot(e);
+	shotCharge = 0;
+	window.clearInterval(chargeInterval);
+}
 function shot(e) {
-	golfball.xvel = 0.01 * (e.clientX - golfball.x);
-	golfball.yvel = 0.01 * (e.clientY - golfball.y);
+	golfball.xvel = 0.0002 * shotCharge * (e.clientX - golfball.x);
+	golfball.yvel = 0.0002 * shotCharge * (e.clientY - golfball.y);
 }
 
 function keyPress(e) {
