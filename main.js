@@ -1,5 +1,4 @@
 var canvas = document.getElementById('canvas');
-canvas.width = document.documentElement.clientWidth;
 var context = canvas.getContext('2d');
 var componentList = [];
 
