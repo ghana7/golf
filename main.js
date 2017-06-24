@@ -50,29 +50,15 @@ function drawFrame() {
 
 function gameLoop() {
 	tick();
-	checkForClick();
 	drawFrame();
 }
 
 
-function checkForClick() {
-	if(detectLeftButton(mouse)) {
-		golfball.xvel = mouse.x;
-		golfball.yvel = mouse.y;
-	}
+function shot(e) {
+	golfball.xvel = 0.01 * (e.clientX - golfball.x);
+	golfball.yvel = 0.01 * (e.clientY - golfball.y);
 }
 
-// Return true if evt carries left mouse button press
-function detectLeftButton(evt) {
-  // W3C
-  if (window.event == null) {
-    return (evt.button == 0)
-  }
-  // IE
-  else {
-    return (evt.button == 1);
-  }
-} 
 
 var golfball = new ball(20, "#DDDDDD", 50, 50, 0, 0);
 
