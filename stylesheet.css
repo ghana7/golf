@@ -26,12 +26,26 @@ html, body {
 }
 
 .abilitySquare {
-	
 	width:10vw;
 	height:10vw;
 	border: 0.5vw solid #777777;
-	display: inline-block;
-	
+	position:absolute;
+}
+.abilitySquare:hover {
+	opacity:0.75;
+	border: 0.5vw solid black;
+}
+#ability1 {
+	left:0;
+}
+#ability2 {
+	left:11vw;
+}
+#ability3 {
+	left:22vw;
+}
+#ability4 {
+	left:33vw;
 }
 #profile {
 	top:0;
