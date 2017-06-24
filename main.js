@@ -62,6 +62,12 @@ function shot(e) {
 	golfball.yvel = 0.01 * (e.clientY - golfball.y);
 }
 
+function keyPress(e) {
+	if(e.which === 32) {
+		golfball.xvel = 0;
+		golfball.yvel = 0;
+	}
+}
 
 var golfball = new ball(10, "#DDDDDD", 50, 50, 0, 0, 10);
 
