@@ -47,11 +47,33 @@ function drawFrame() {
 	}
 }
 
+
 function gameLoop() {
 	tick();
+	checkForClick();
 	drawFrame();
 }
 
-var golfball = new ball(20, "#DDDDDD", 50, 50, 5, 0);
+
+function checkForClick() {
+	if(detectLeftButton(mouse)) {
+		golfball.xvel = mouse.x;
+		golfball.yvel = mouse.y;
+	}
+}
+
+// Return true if evt carries left mouse button press
+function detectLeftButton(evt) {
+  // W3C
+  if (window.event == null) {
+    return (evt.button == 0)
+  }
+  // IE
+  else {
+    return (evt.button == 1);
+  }
+} 
+
+var golfball = new ball(20, "#DDDDDD", 50, 50, 0, 0);
 
 var interval = setInterval(gameLoop, 20);
