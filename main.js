@@ -48,6 +48,7 @@ function drawFrame() {
 				break;
 		}
 	}
+	document.getElementById("shotcharge").style.height = "" + shotCharge + "vh";
 }
 
 

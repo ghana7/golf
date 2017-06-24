@@ -17,6 +17,13 @@ html, body {
 	opacity:0.5;
 }
 
+#shotcharge {
+	bottom:0;
+	left:0;
+	width:5vw;
+	height:0;
+}
+
 #abilities {
 	bottom:0;
 	left:12.5vw;
