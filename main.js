@@ -2,7 +2,7 @@ var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
 var componentList = [];
 
-function ball(radius, color, x, y, xvel, yvel) {
+function ball(radius, color, x, y, xvel, yvel, mass) {
 	this.type = "ball";
 	this.radius = radius;
 	this.x = x;
@@ -10,6 +10,7 @@ function ball(radius, color, x, y, xvel, yvel) {
 	this.xvel = xvel;
 	this.yvel = yvel;
 	this.color = color;
+	this.mass = mass;
 	componentList.push(this);
 }
 
@@ -27,7 +28,9 @@ function tick() {
 	for(var i = 0; i < componentList.length; i++) {
 		var component = componentList[i];
 		component.x += component.xvel;
+		component.xvel -= component.xvel * .01;// .1 represents the coefficient of friction between the object and the surface. Due to the lack of surfaces, it is being substituted as .1 until more are added
 		component.y += component.yvel;
+		component.yvel -= component.yvel * .01;// same as xvel, both still need mass incorperated in
 	}
 }
 
@@ -60,6 +63,6 @@ function shot(e) {
 }
 
 
-var golfball = new ball(20, "#DDDDDD", 50, 50, 0, 0);
+var golfball = new ball(10, "#DDDDDD", 50, 50, 0, 0, 10);
 
 var interval = setInterval(gameLoop, 20);
