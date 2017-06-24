@@ -77,8 +77,9 @@ function mouseUp(e) {
 	window.clearInterval(chargeInterval);
 }
 function shot(e) {
-	golfball.xvel = 0.0002 * shotCharge * (e.clientX - golfball.x);
-	golfball.yvel = 0.0002 * shotCharge * (e.clientY - golfball.y);
+	var angle = Math.atan2((e.clientY - golfball.y),(e.clientX - golfball.x));
+	golfball.xvel = 0.3 * shotCharge * Math.cos(angle);
+	golfball.yvel = 0.3 * shotCharge * Math.sin(angle);
 }
 
 function keyPress(e) {
