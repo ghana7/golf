@@ -27,10 +27,10 @@ function drawBall(ball) {
 function tick() {
 	for(var i = 0; i < componentList.length; i++) {
 		var component = componentList[i];
-		component.x += component.xvel;
-		component.xvel -= component.xvel * .01;// .1 represents the coefficient of friction between the object and the surface. Due to the lack of surfaces, it is being substituted as .1 until more are added
-		component.y += component.yvel;
-		component.yvel -= component.yvel * .01;// same as xvel, both still need mass incorperated in
+		component.x += 2 * component.xvel;
+		component.xvel -= component.xvel * .02;// .1 represents the coefficient of friction between the object and the surface. Due to the lack of surfaces, it is being substituted as .1 until more are added
+		component.y += 2 * component.yvel;
+		component.yvel -= component.yvel * .02;// same as xvel, both still need mass incorperated in
 	}
 }
 
